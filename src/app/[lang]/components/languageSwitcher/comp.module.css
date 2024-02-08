@@ -1,0 +1,28 @@
+.floatingActionBtns {
+  width: 100dvw;
+  height: 100dvh;
+  display: grid;
+  grid-template-columns: 1fr 150px;
+  grid-template-rows: 1fr 200px;
+}
+
+@media (max-width: 600px) {
+  .floatingActionBtns {
+    grid-template-columns: 1fr 100px;
+    grid-template-rows: 1fr 150px;
+  }
+}
+
+.languageSwitcherDiv {
+  display: flex;
+  flex-direction: column;
+  grid-column: 2 / -1;
+  grid-row: 2 / -1;
+}
+
+.languageSwitcherBtn {
+  width: 75px;
+  height: 75px;
+  border-radius: 37.5px;
+  position: fixed;
+}
