@@ -6,9 +6,9 @@ import "../globals.css";
 import { dir } from "i18next";
 import { languages } from "../i18n/settings";
 import { useTranslation } from "../i18n/index";
-import styles from "./page.module.css";
-import Link from "next/link";
 import LanguageSwitcher from "./components/languageSwitcher/LanguageSwitcher";
+import FloatingContainer from "./components/floatingContainer/floatingContainer";
+import ScrollToTop from "./components/scrollToTop/scrollToTop";
 
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));
@@ -40,7 +40,10 @@ export default function RootLayout({
     <html lang={params.lang} dir={dir(params.lang)}>
       <body className={inter.className}>
         {children}
-        <LanguageSwitcher params={params}></LanguageSwitcher>
+        <FloatingContainer>
+          <LanguageSwitcher params={params}></LanguageSwitcher>
+          <ScrollToTop></ScrollToTop>
+        </FloatingContainer>
       </body>
     </html>
   );

@@ -19,15 +19,11 @@ export default function LanguageSwitcher({ params }: Props) {
   console.log(res);
 
   return (
-    <div className={styles.floatingActionBtns}>
-      <div className={styles.languageSwitcherDiv}>
-        <Link
-          href={`/${isEnglish ? "ar" : "en"}/${res}`}
-          className={styles.languageSwitcherBtn}
-        >
-          {isEnglish ? "ar".toUpperCase() : "en".toUpperCase()}
-        </Link>
-      </div>
-    </div>
+    <Link
+      href={`/${isEnglish ? "ar" : "en"}/${res}`}
+      className={styles.languageSwitcherBtn}
+    >
+      {isEnglish ? "ar".toUpperCase() : "en".toUpperCase()}
+    </Link>
   );
 }

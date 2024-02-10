@@ -1,5 +1,16 @@
 export const runtime = "edge";
 
-export default function DoctorPage() {
-  return <div>DoctorPage</div>;
+import Link from "next/link";
+
+type Props = {
+  params: { lang: string };
+};
+
+export default function DoctorPage({ params }: Props) {
+  return (
+    <>
+      <div>DoctorPage</div>
+      <Link href={`/${params.lang}`}>Go To HomePage</Link>
+    </>
+  );
 }
