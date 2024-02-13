@@ -1,4 +1,14 @@
 {
   "title": "Doctopia",
-  "description": "Doctopia doctor booking service"
+  "description": "Doctopia doctor booking service",
+  "hero1": "The Best Doctor.",
+  "hero2": "The Shortest Time.",
+  "hero3": "The Nearest Clinic.",
+  "joinus": "Are You A Doctor ? Join Us...",
+  "pickspec": "Pick A Speciality",
+  "pickgov": "Select Governorate",
+  "pickcity": "Select City",
+  "spec": "Speciality",
+  "gov": "Governorate",
+  "city": "City / Area"
 }

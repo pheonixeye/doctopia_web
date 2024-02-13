@@ -9,8 +9,14 @@
   justify-content: center;
   grid-row: 2/ 3;
   align-self: center;
+  margin-top: 8px;
 }
 
 .scrollToTopBtn:hover {
   background-color: var(--doctopia-green);
+  cursor: pointer;
+}
+
+.scrollToTopBtn:active {
+  background-color: var(--doctopia-orange);
 }

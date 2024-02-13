@@ -1,0 +1,21 @@
+.body {
+  max-height: 100dvh;
+}
+
+.mainSection {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 100px 1fr;
+  max-width: 90dvw;
+  max-height: 90dvh;
+  padding: 8px;
+  margin: auto;
+  gap: 20px;
+}
+
+@media (max-width: 600px) {
+  .mainSection {
+    display: flex;
+    flex-direction: column;
+  }
+}

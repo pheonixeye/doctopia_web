@@ -9,6 +9,7 @@ import { useTranslation } from "../i18n/index";
 import LanguageSwitcher from "./components/languageSwitcher/LanguageSwitcher";
 import FloatingContainer from "./components/floatingContainer/floatingContainer";
 import ScrollToTop from "./components/scrollToTop/scrollToTop";
+import styles from "./page.module.css";
 
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));
@@ -38,7 +39,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang={params.lang} dir={dir(params.lang)}>
-      <body className={inter.className}>
+      <body className={`${inter.className} ${styles.body}`}>
         {children}
         <FloatingContainer>
           <LanguageSwitcher params={params}></LanguageSwitcher>

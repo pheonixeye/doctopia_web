@@ -9,8 +9,13 @@
   justify-content: center;
   grid-row: 1 / 2;
   align-self: center;
+  margin-top: 8px;
 }
 
 .languageSwitcherBtn:hover {
   background-color: var(--doctopia-green);
+}
+
+.languageSwitcherBtn:active {
+  background-color: var(--doctopia-orange);
 }

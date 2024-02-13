@@ -1,0 +1,50 @@
+.heroSection {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.486);
+  border-radius: 20px;
+  margin-top: 20px;
+  justify-content: space-around;
+  box-shadow: 5px 5px 5px grey;
+}
+
+@media (max-width: 600px) {
+  .heroSection {
+    display: none;
+  }
+}
+
+.heroTextOne {
+  margin-top: 50px;
+  color: var(--doctopia-font-color);
+  font-size: 4.5rem;
+  text-align: center;
+}
+
+.heroTextOneArabic {
+  font-size: 5.5rem;
+}
+
+.heroTextTwo {
+  margin-top: 50px;
+  color: var(--doctopia-font-color);
+  font-size: 3rem;
+  text-align: center;
+}
+.heroTextTwoArabic {
+  font-size: 4rem;
+}
+
+.heroTextThree {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  color: var(--doctopia-font-color);
+  font-size: 2rem;
+  text-align: center;
+}
+
+.heroTextThreeArabic {
+  font-size: 3rem;
+}
