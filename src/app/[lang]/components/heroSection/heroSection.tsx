@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./comp.module.css";
-import { useTranslation } from "../../../i18n/index";
+import { useTranslation } from "../../../../i18n/index";
 
 type Props = {
   params: { lang: string };

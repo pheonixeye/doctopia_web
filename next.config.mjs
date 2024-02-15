@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  runtime: "edge",
+  // runtime: "edge",
   reactStrictMode: true,
   swcMinify: true,
 };

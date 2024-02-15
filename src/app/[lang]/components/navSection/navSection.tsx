@@ -3,7 +3,7 @@ import styles from "./comp.module.css";
 import Image from "next/image";
 import logo from "../../../../../public/images/logo.png";
 import Link from "next/link";
-import { useTranslation } from "../../../i18n/index";
+import { useTranslation } from "../../../../i18n/index";
 
 type Props = {
   params: { lang: string };
