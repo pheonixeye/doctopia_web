@@ -10,6 +10,7 @@ import LanguageSwitcher from "./components/languageSwitcher/LanguageSwitcher";
 import FloatingContainer from "./components/floatingContainer/floatingContainer";
 import ScrollToTop from "./components/scrollToTop/scrollToTop";
 import styles from "./page.module.css";
+import Footer from "./components/footer/footer";
 
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));
@@ -45,6 +46,7 @@ export default function RootLayout({
           <LanguageSwitcher params={params}></LanguageSwitcher>
           <ScrollToTop></ScrollToTop>
         </FloatingContainer>
+        <Footer></Footer>
       </body>
     </html>
   );

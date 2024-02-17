@@ -1,0 +1,18 @@
+.footerDiv {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  margin-top: 20px;
+  height: 200px;
+  align-items: center;
+  gap: 20px;
+  justify-items: center;
+  box-shadow: -10px 0px 10px grey;
+}
+
+@media (max-width: 600px) {
+  .footerDiv {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+  }
+}

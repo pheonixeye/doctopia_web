@@ -26,7 +26,7 @@ export default async function NavSection({ params }: Props) {
         height={100}
       />
       <h1 className={styles.appName}>{t("title")}</h1>
-      <Link className={styles.joinUs} href={`/${lang}/doc_reg`}>
+      <Link className={styles.joinUs} href={`/${lang}/joinus`}>
         {t("joinus")}
       </Link>
     </div>

@@ -1,16 +1,19 @@
 .body {
   max-height: 100dvh;
+  display: flex;
+  flex-direction: column;
 }
 
 .mainSection {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 100px 1fr;
-  max-width: 90dvw;
-  max-height: 90dvh;
+  max-width: 100%;
+  max-height: fit-content;
   padding: 8px;
   margin: auto;
-  gap: 20px;
+  row-gap: 50px;
+  column-gap: 20px;
 }
 
 @media (max-width: 600px) {

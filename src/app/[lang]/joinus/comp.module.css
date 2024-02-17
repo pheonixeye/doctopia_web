@@ -1,0 +1,43 @@
+.joinUsContainer {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  width: 70dvw;
+  background-color: rgba(255, 255, 255, 0.486);
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px grey;
+  padding: 20px;
+  align-items: center;
+}
+
+.joinUsContainer form label {
+  font-size: 2rem;
+  padding: 10px;
+}
+
+.joinUsContainer form input {
+  width: 100%;
+  height: 50px;
+  margin: 10px;
+  padding: 10px;
+  font-size: 1.8rem;
+  border-radius: 20px;
+}
+
+.pageHeading {
+  font-size: 4rem;
+  margin: auto;
+  padding: auto;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .joinUsContainer {
+    width: 95%;
+  }
+  .pageHeading {
+    font-size: 2.8rem;
+  }
+}
