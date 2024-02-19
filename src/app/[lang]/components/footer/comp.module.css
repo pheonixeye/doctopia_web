@@ -16,3 +16,44 @@
     grid-template-rows: repeat(3, 1fr);
   }
 }
+
+.copyright {
+  font-size: 1.5rem;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logoLink h2 {
+  font-size: 3rem;
+}
+
+.socialLinks {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 15px;
+}
+
+.socialLinks a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  font-size: 2rem;
+  border: 1px solid steelblue;
+  width: 75px;
+  height: 75px;
+  border-radius: 37.5px;
+  text-align: center;
+}
+
+.socialLinks a:hover {
+  background-color: var(--doctopia-green);
+}
+.socialLinks a:active {
+  background-color: var(--doctopia-orange);
+}

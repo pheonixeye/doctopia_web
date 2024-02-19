@@ -14,6 +14,10 @@ type Props = {
 export default async function SearchSection({ params }: Props) {
   const isEnglish = params.lang == "en";
 
+  async function search() {
+    "use server";
+  }
+
   // const { t } = await useTranslation(params.lang, "translation");
 
   const specs: Speciality[] = await getAllSpecialities();
@@ -21,17 +25,19 @@ export default async function SearchSection({ params }: Props) {
   const cities: City[] = await getAllCities();
   return (
     <div className={styles.searchSection}>
-      <SpecialityPicker lang={params.lang} specs={specs}></SpecialityPicker>
-      <GovCityPicker
-        lang={params.lang}
-        govs={govs}
-        cities={cities}
-      ></GovCityPicker>
-      <div>
-        <button className={styles.searchBtn} type="button">
-          Search
-        </button>
-      </div>
+      <form>
+        <SpecialityPicker lang={params.lang} specs={specs}></SpecialityPicker>
+        <GovCityPicker
+          lang={params.lang}
+          govs={govs}
+          cities={cities}
+        ></GovCityPicker>
+        <div>
+          <button className="mainBtn" type="submit">
+            {isEnglish ? "Search" : "ابحث"}
+          </button>
+        </div>
+      </form>
     </div>
   );
 }

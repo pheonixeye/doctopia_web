@@ -1,16 +1,13 @@
-"use client";
+import Link from "next/link";
 import styles from "./comp.module.css";
+import { MdKeyboardDoubleArrowUp } from "react-icons/md";
 
 export default function ScrollToTop() {
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
   return (
-    <button className={styles.scrollToTopBtn} onClick={scrollToTop}>
-      ^
-    </button>
+    <Link href="#">
+      <div className={styles.scrollToTopBtn}>
+        <MdKeyboardDoubleArrowUp className={styles.btnIcon} />
+      </div>
+    </Link>
   );
 }

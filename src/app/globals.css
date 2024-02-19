@@ -131,3 +131,21 @@ a {
     color-scheme: dark;
   }
 }
+
+.mainBtn {
+  font-size: 2rem;
+  border-radius: 20px;
+  background-color: var(--doctopia-blue);
+  color: white;
+  padding: 20px;
+}
+
+.mainBtn:hover {
+  cursor: pointer;
+  background-color: var(--doctopia-orange);
+  box-shadow: 5px 5px 5px grey;
+}
+
+.mainBtn:active {
+  background-color: var(--doctopia-green);
+}

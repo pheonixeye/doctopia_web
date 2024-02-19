@@ -46,7 +46,7 @@ export default function RootLayout({
           <LanguageSwitcher params={params}></LanguageSwitcher>
           <ScrollToTop></ScrollToTop>
         </FloatingContainer>
-        <Footer></Footer>
+        <Footer params={params}></Footer>
       </body>
     </html>
   );

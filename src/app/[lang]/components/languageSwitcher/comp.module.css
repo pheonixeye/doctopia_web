@@ -10,6 +10,7 @@
   grid-row: 1 / 2;
   align-self: center;
   margin-top: 8px;
+  font-weight: bold;
 }
 
 .languageSwitcherBtn:hover {

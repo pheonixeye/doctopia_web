@@ -28,7 +28,7 @@
 .pageHeading {
   font-size: 4rem;
   margin: auto;
-  padding: auto;
+  padding: 1rem;
   margin-bottom: 10px;
   text-align: center;
 }
@@ -40,4 +40,12 @@
   .pageHeading {
     font-size: 2.8rem;
   }
+}
+
+.submitBtnContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
 }

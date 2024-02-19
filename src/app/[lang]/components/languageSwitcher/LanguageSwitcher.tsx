@@ -16,7 +16,7 @@ export default function LanguageSwitcher({ params }: Props) {
   path.shift();
   path.shift();
   const res = path.join("/");
-  console.log(res);
+  // console.log(res);
 
   return (
     <Link

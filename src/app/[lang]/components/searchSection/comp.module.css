@@ -36,21 +36,3 @@
   max-width: 250px;
   text-align: center;
 }
-
-.searchBtn {
-  font-size: 1rem;
-  border-radius: 20px;
-  background-color: var(--doctopia-blue);
-  color: white;
-  padding: 20px;
-}
-
-.searchBtn:hover {
-  cursor: pointer;
-  background-color: var(--doctopia-orange);
-  box-shadow: 5px 5px 5px grey;
-}
-
-.searchBtn:active {
-  background-color: var(--doctopia-green);
-}

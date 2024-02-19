@@ -21,3 +21,7 @@
 .scrollToTopBtn:active {
   background-color: var(--doctopia-orange);
 }
+
+.btnIcon {
+  font-size: 2rem;
+}

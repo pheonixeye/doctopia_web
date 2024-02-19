@@ -10,5 +10,17 @@
   "pickcity": "Select City",
   "spec": "Speciality",
   "gov": "Governorate",
-  "city": "City / Area"
+  "city": "City / Area",
+  "doc_join": "Join Our Network",
+  "name": "Name",
+  "email": "Email",
+  "mobile": "Mobile",
+  "submit": "Submit",
+  "home": "Home",
+  "thank_you_main": "Thanks for Your Interest.",
+  "thank_you_sub": "We Are Honored by Your Registeration. Kindly Install Our Mobile Application and We Will Be In Contact Very Soon.",
+  "joinus_title": "Join Us",
+  "joinus_description": "Doctor Join Us Page Form.",
+  "thankyou_title": "Thank You",
+  "thankyou_description": "Doctor Thank You for Registeration Page."
 }
