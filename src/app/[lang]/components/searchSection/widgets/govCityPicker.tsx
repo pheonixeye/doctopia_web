@@ -35,7 +35,7 @@ export default function GovCityPicker({ lang, govs, cities }: Props) {
           id="governorate"
           onChange={handleChangeGovId}
         >
-          <option value="governorate">{t("gov")}</option>
+          <option value="">{t("gov")}</option>
           {govs?.map((e) => {
             return (
               <option
@@ -51,7 +51,7 @@ export default function GovCityPicker({ lang, govs, cities }: Props) {
       <div>
         <label htmlFor="city">{t("pickcity")}</label>
         <select name="city" id="city">
-          <option value="city">{t("city")}</option>
+          <option value="">{t("city")}</option>
           {cityList?.map((e) => {
             return (
               <option value={e.id} key={e.city_name_en + e.city_name_ar}>

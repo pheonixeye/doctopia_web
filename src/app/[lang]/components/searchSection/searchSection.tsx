@@ -6,6 +6,7 @@ import { Governorate, getAllGovernorates } from "@/utils/getGovernorates";
 import { City, getAllCities } from "@/utils/getAllCities";
 import SpecialityPicker from "./widgets/specialityPicker";
 import GovCityPicker from "./widgets/govCityPicker";
+import { searchDoctorsRedirect } from "@/actions/search_doctors_redirect";
 
 type Props = {
   params: { lang: string };
@@ -14,25 +15,19 @@ type Props = {
 export default async function SearchSection({ params }: Props) {
   const isEnglish = params.lang == "en";
 
-  async function search() {
-    "use server";
-  }
-
-  // const { t } = await useTranslation(params.lang, "translation");
-
   const specs: Speciality[] = await getAllSpecialities();
   const govs: Governorate[] = await getAllGovernorates();
   const cities: City[] = await getAllCities();
   return (
     <div className={styles.searchSection}>
-      <form>
+      <form action={searchDoctorsRedirect}>
         <SpecialityPicker lang={params.lang} specs={specs}></SpecialityPicker>
         <GovCityPicker
           lang={params.lang}
           govs={govs}
           cities={cities}
         ></GovCityPicker>
-        <div>
+        <div style={{ textAlign: "center" }}>
           <button className="mainBtn" type="submit">
             {isEnglish ? "Search" : "ابحث"}
           </button>

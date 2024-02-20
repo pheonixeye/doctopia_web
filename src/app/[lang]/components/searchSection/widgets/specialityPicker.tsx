@@ -15,13 +15,10 @@ export default function SpecialityPicker({ lang, specs }: Props) {
     <div>
       <label htmlFor="speciality">{t("pickspec")}</label>
       <select name="speciality" id="speciality" required>
-        <option value="specialities">{t("spec")}</option>
+        <option value="">{t("spec")}</option>
         {specs?.map((e) => {
           return (
-            <option
-              value={e.speciality_en}
-              key={e.speciality_en + e.speciality_ar}
-            >
+            <option value={e.spec_id} key={e.speciality_en + e.speciality_ar}>
               {isEnglish ? e.speciality_en : e.speciality_ar}
             </option>
           );

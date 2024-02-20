@@ -27,5 +27,7 @@ export async function getAllGovernorates(): Promise<Governorate[]> {
 
   const govs: Governorate[] = docs as any as Governorate[];
 
+  console.log("fetched governorates.");
+
   return govs;
 }

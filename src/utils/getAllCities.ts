@@ -28,5 +28,7 @@ export async function getAllCities(): Promise<City[]> {
 
   const cities: City[] = docs as any as City[];
 
+  console.log("fetched cities.");
+
   return cities;
 }

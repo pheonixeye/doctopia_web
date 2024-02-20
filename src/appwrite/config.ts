@@ -7,4 +7,6 @@ export const config = {
   col_city: String(process.env.COLL_CITIES),
   db_form_requests: String(process.env.DB_FORM_REQUESTS),
   col_doctor_join_requests: String(process.env.COLL_DOCTOR_JOIN_REQUESTS),
+  db_clinics: String(process.env.DB_CLINICS),
+  col_clinics: String(process.env.COLL_CLINICS),
 };
