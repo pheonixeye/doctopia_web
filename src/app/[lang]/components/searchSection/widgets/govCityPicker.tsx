@@ -22,7 +22,12 @@ export default function GovCityPicker({ lang, govs, cities }: Props) {
     setGovId(parseInt(e.target.value));
     setCityList([]);
     setCityList(
-      cities.filter((x) => x.governorate_id == parseInt(e.target.value))
+      cities.filter((city) => {
+        const selectedGov = govs.find(
+          (gov) => gov.id === parseInt(e.target.value)
+        );
+        return city.governorate_id === selectedGov?.id;
+      })
     );
   }
 
@@ -38,10 +43,7 @@ export default function GovCityPicker({ lang, govs, cities }: Props) {
           <option value="">{t("gov")}</option>
           {govs?.map((e) => {
             return (
-              <option
-                value={e.id}
-                key={e.governorate_name_en + e.governorate_name_ar}
-              >
+              <option value={e.id} key={e.id}>
                 {isEnglish ? e.governorate_name_en : e.governorate_name_ar}
               </option>
             );
@@ -54,7 +56,7 @@ export default function GovCityPicker({ lang, govs, cities }: Props) {
           <option value="">{t("city")}</option>
           {cityList?.map((e) => {
             return (
-              <option value={e.id} key={e.city_name_en + e.city_name_ar}>
+              <option value={e.id} key={e.id}>
                 {isEnglish ? e.city_name_en : e.city_name_ar}
               </option>
             );

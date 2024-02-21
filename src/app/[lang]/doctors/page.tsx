@@ -13,7 +13,7 @@ export default async function DoctorsPage(props: Props) {
   const clinics = await getDoctorSearchResults({
     spec: props.searchParams.specialities as string,
     gov: props.searchParams.governorate as string,
-    city: props.searchParams.city as string,
+    city: props.searchParams.city as string | undefined,
     page: props.searchParams.page as string,
   });
   console.log(clinics);

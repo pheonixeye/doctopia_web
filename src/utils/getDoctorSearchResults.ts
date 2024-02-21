@@ -27,6 +27,9 @@ export interface Clinic {
   followup_fees: number;
   discount: number;
   off_dates: string[];
+  spec_id: number;
+  gov_id: number;
+  city_id: number;
 }
 
 export interface Parameters {
@@ -39,23 +42,16 @@ export interface Parameters {
 export async function getDoctorSearchResults(
   parameters: Parameters
 ): Promise<Clinic[]> {
-  const specialityList: Speciality[] = await getAllSpecialities();
-  const govList: Governorate[] = await getAllGovernorates();
-  const cityList: City[] = await getAllCities();
-
-  const speciality = specialityList.find(
-    (value) => value.spec_id === parseInt(parameters.spec!)
-  );
-  const governorate = govList.find(
-    (value) => value.id === tryParseInt(parameters.gov)
-  );
-  const city = cityList.find(
-    (value) => value.id === tryParseInt(parameters.city)
-  );
+  const spec_id = tryParseInt(parameters.spec);
+  const gov_id = tryParseInt(parameters.gov);
+  const city_id = tryParseInt(parameters.city);
   const page = tryParseInt(parameters.page);
 
   const result = await fetch(
-    `${config.endpoint}/databases/${config.db_clinics}/collections/${config.col_clinics}/documents?queries[]=limit(5)&queries[]=equal("speciality_en",${speciality?.speciality_en})`,
+    `${config.endpoint}/databases/${config.db_clinics}/collections/${
+      config.col_clinics
+    }/documents?queries[]=limit(5)&queries[]=equal("spec_id",${spec_id!})`,
+    //TODO: make requests by id of spec/gov/city
     {
       headers: {
         "Content-Type": "application/json",
