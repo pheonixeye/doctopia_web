@@ -2,7 +2,7 @@ import { config } from "@/appwrite/config";
 import { Models } from "appwrite";
 
 export interface Governorate {
-  id: number;
+  id: string;
   governorate_name_en: string;
   governorate_name_ar: string;
 }
@@ -26,6 +26,8 @@ export async function getAllGovernorates(): Promise<Governorate[]> {
   const docs = res.documents as Models.Document[];
 
   const govs: Governorate[] = docs as any as Governorate[];
+
+  govs.sort((a, b) => (parseInt(a.id) > parseInt(b.id) ? 1 : -1));
 
   console.log("fetched governorates.");
 

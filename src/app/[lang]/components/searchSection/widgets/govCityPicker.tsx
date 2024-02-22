@@ -15,19 +15,13 @@ export default function GovCityPicker({ lang, govs, cities }: Props) {
   const isEnglish = lang == "en";
   const { t } = useTranslation(lang, "translation");
 
-  const [_, setGovId] = useState<number | undefined>(undefined);
+  // const [_, setGovId] = useState<number | undefined>(undefined);
   const [cityList, setCityList] = useState<City[]>([]);
 
   function handleChangeGovId(e: ChangeEvent<HTMLSelectElement>) {
-    setGovId(parseInt(e.target.value));
-    setCityList([]);
+    // setGovId(parseInt(e.target.value));
     setCityList(
-      cities.filter((city) => {
-        const selectedGov = govs.find(
-          (gov) => gov.id === parseInt(e.target.value)
-        );
-        return city.governorate_id === selectedGov?.id;
-      })
+      cities.filter((city) => city.governorate_id === e.target.value)
     );
   }
 
@@ -54,7 +48,7 @@ export default function GovCityPicker({ lang, govs, cities }: Props) {
         <label htmlFor="city">{t("pickcity")}</label>
         <select name="city" id="city">
           <option value="">{t("city")}</option>
-          {cityList?.map((e) => {
+          {cityList.map((e) => {
             return (
               <option value={e.id} key={e.id}>
                 {isEnglish ? e.city_name_en : e.city_name_ar}

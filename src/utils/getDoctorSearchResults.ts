@@ -1,8 +1,7 @@
 import { config } from "@/appwrite/config";
 import { Models } from "appwrite";
-import { Speciality, getAllSpecialities } from "./getAllSpecialities";
-import { Governorate, getAllGovernorates } from "./getGovernorates";
-import { City, getAllCities } from "./getAllCities";
+import { QueryClass } from "./queryClass";
+// import { QueryClass } from "./queryClass";
 
 export interface Clinic {
   doc_id: string;
@@ -39,6 +38,28 @@ export interface Parameters {
   page?: string;
 }
 
+function _buildFindDoctorsQueryQuery(
+  spec_id: number | undefined,
+  gov_id: number | undefined,
+  city_id: number | undefined,
+  page: number
+): string {
+  let qSpecs: string | undefined;
+  let qGovs: string | undefined;
+  let qCity: string | undefined;
+  let qPage: string | undefined;
+  if (spec_id != undefined) {
+    qSpecs = QueryClass.equal("spec_id", spec_id);
+  }
+  if (gov_id != undefined) {
+    qGovs = QueryClass.equal("gov_id", gov_id);
+  }
+  if (city_id != undefined) {
+    qCity = QueryClass.equal("city_id", city_id);
+  }
+  return `?queries[]=${qSpecs}&queries[]=${qGovs}&queries[]=${qCity}&queries[]=limit(5)`;
+}
+
 export async function getDoctorSearchResults(
   parameters: Parameters
 ): Promise<Clinic[]> {
@@ -47,12 +68,16 @@ export async function getDoctorSearchResults(
   const city_id = tryParseInt(parameters.city);
   const page = tryParseInt(parameters.page);
 
+  const query = _buildFindDoctorsQueryQuery(spec_id, gov_id, city_id, page!);
+
+  // console.log("query: ", query);
+
   const result = await fetch(
-    `${config.endpoint}/databases/${config.db_clinics}/collections/${
-      config.col_clinics
-    }/documents?queries[]=limit(5)&queries[]=equal("spec_id",${spec_id!})`,
+    `${config.endpoint}/databases/${config.db_clinics}/collections/${config.col_clinics}/documents${query}`,
     //TODO: make requests by id of spec/gov/city
+
     {
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
         "X-Appwrite-Response-Format": "1.4.0",
@@ -60,6 +85,8 @@ export async function getDoctorSearchResults(
       },
     }
   );
+
+  // console.log(result.url);
   if (!result.ok) throw new Error(result.statusText);
 
   const res = (await result.json()) as any;

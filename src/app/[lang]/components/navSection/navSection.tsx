@@ -2,8 +2,8 @@ import React from "react";
 import styles from "./comp.module.css";
 import Image from "next/image";
 import logo from "../../../../../public/images/logo.png";
-import Link from "next/link";
 import { useTranslation } from "../../../../i18n/index";
+import JoinUsLink from "./widgets/joinUsLink";
 
 type Props = {
   params: { lang: string };
@@ -11,8 +11,6 @@ type Props = {
 
 export default async function NavSection({ params }: Props) {
   const isEnglish = params.lang == "en";
-
-  const lang = isEnglish ? "en" : "ar";
 
   const { t } = await useTranslation(params.lang, "translation");
 
@@ -26,9 +24,7 @@ export default async function NavSection({ params }: Props) {
         height={100}
       />
       <h1 className={styles.appName}>{t("title")}</h1>
-      <Link className={styles.joinUs} href={`/${lang}/joinus`}>
-        {t("joinus")}
-      </Link>
+      <JoinUsLink params={params}></JoinUsLink>
     </div>
   );
 }

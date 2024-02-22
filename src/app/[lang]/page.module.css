@@ -7,7 +7,7 @@
 .mainSection {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 100px 1fr;
+  grid-template-rows: 1fr;
   max-width: 100%;
   max-height: fit-content;
   padding: 8px;
@@ -20,5 +20,6 @@
   .mainSection {
     display: flex;
     flex-direction: column;
+    margin-inline: 8px;
   }
 }

@@ -11,15 +11,20 @@ type Props = {
 export default async function DoctorsPage(props: Props) {
   console.log(props.searchParams);
   const clinics = await getDoctorSearchResults({
-    spec: props.searchParams.specialities as string,
+    spec: props.searchParams.speciality as string,
     gov: props.searchParams.governorate as string,
     city: props.searchParams.city as string | undefined,
     page: props.searchParams.page as string,
   });
-  console.log(clinics);
+  // console.log(clinics);
   return (
     <>
-      <div>Search Results Page</div>
+      <main className={styles.mainSection}>
+        <h1>Search Results:</h1>
+        {clinics.map((clinic) => (
+          <div key={clinic.mobile}>{JSON.stringify(clinic)}</div>
+        ))}
+      </main>
     </>
   );
 }
