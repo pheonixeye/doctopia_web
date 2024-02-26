@@ -2,7 +2,7 @@
 
 import { cookies } from "next/headers";
 import { cookieName } from "@/i18n/settings";
-import { redirect } from "next/navigation";
+import { RedirectType, redirect } from "next/navigation";
 
 export async function searchDoctorsRedirect(formData: FormData) {
   const lang = cookies().get(cookieName)?.value;
@@ -14,6 +14,7 @@ export async function searchDoctorsRedirect(formData: FormData) {
   };
 
   redirect(
-    `${lang}/doctors?speciality=${srcParams.spec}&governorate=${srcParams.gov}&city=${srcParams.city}&page=1`
+    `/${lang}/doctors?speciality=${srcParams.spec}&governorate=${srcParams.gov}&city=${srcParams.city}&page=1`,
+    RedirectType.push
   );
 }

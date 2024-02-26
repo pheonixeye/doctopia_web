@@ -29,7 +29,7 @@ export async function getAllGovernorates(): Promise<Governorate[]> {
 
   govs.sort((a, b) => (parseInt(a.id) > parseInt(b.id) ? 1 : -1));
 
-  console.log("fetched governorates.");
+  // console.log("fetched governorates.");
 
   return govs;
 }

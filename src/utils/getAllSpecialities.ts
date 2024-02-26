@@ -27,7 +27,7 @@ export const getAllSpecialities = async () => {
 
   const specs: Speciality[] = docs as any as Speciality[];
 
-  console.log("fetched specialities.");
+  // console.log("fetched specialities.");
 
   return specs;
 };

@@ -30,7 +30,7 @@ export async function getAllCities(): Promise<City[]> {
 
   cities.sort((a, b) => (parseInt(a.id) > parseInt(b.id) ? 1 : -1));
 
-  console.log("fetched cities.");
+  // console.log("fetched cities.");
 
   return cities;
 }

@@ -39,36 +39,52 @@ export interface Parameters {
 }
 
 function _buildFindDoctorsQueryQuery(
-  spec_id: number | undefined,
-  gov_id: number | undefined,
-  city_id: number | undefined,
+  spec_id: number,
+  gov_id: number | null,
+  city_id: number | null,
   page: number
 ): string {
-  let qSpecs: string | undefined;
-  let qGovs: string | undefined;
-  let qCity: string | undefined;
-  let qPage: string | undefined;
-  if (spec_id != undefined) {
+  let qSpecs: string;
+  let qGovs: string | null;
+  let qCity: string | null;
+  let qPage: string | null;
+
+  const queries: string[] = [];
+
+  if (spec_id != null) {
     qSpecs = QueryClass.equal("spec_id", spec_id);
+    queries.push(`?queries[]=${qSpecs}&`);
   }
-  if (gov_id != undefined) {
+  if (gov_id != null) {
     qGovs = QueryClass.equal("gov_id", gov_id);
+    queries.push(`queries[]=${qGovs}&`);
   }
-  if (city_id != undefined) {
+  if (city_id != null) {
     qCity = QueryClass.equal("city_id", city_id);
+    queries.push(`queries[]=${qCity}&`);
   }
-  return `?queries[]=${qSpecs}&queries[]=${qGovs}&queries[]=${qCity}&queries[]=limit(5)`;
+  queries.push(`queries[]=limit(5)&`);
+  //TODO: pagination by cursor
+  // queries.push(`queries[]=limit(5)&`);
+
+  return queries.join();
 }
 
 export async function getDoctorSearchResults(
   parameters: Parameters
 ): Promise<Clinic[]> {
-  const spec_id = tryParseInt(parameters.spec);
+  const spec_id = parseInt(parameters.spec!);
   const gov_id = tryParseInt(parameters.gov);
   const city_id = tryParseInt(parameters.city);
   const page = tryParseInt(parameters.page);
 
-  const query = _buildFindDoctorsQueryQuery(spec_id, gov_id, city_id, page!);
+  let query: string;
+
+  try {
+    query = _buildFindDoctorsQueryQuery(spec_id, gov_id, city_id, page!);
+  } catch (error) {
+    throw new Error("No Speciality Selected...");
+  }
 
   // console.log("query: ", query);
 
@@ -93,17 +109,17 @@ export async function getDoctorSearchResults(
 
   const docs = res.documents as Models.Document[];
 
-  const govs: Clinic[] = docs as any as Clinic[];
+  const clinics: Clinic[] = docs as any as Clinic[];
 
-  return govs;
+  return clinics;
 }
 
-function tryParseInt(i?: string | ""): number | undefined {
-  let value: number | undefined;
+function tryParseInt(i?: string | ""): number | null {
+  let value: number | null;
   try {
     value = parseInt(i!);
   } catch (error) {
-    value = undefined;
+    value = null;
   }
   return value;
 }

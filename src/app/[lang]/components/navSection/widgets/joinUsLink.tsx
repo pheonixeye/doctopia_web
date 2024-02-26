@@ -16,7 +16,11 @@ export default function JoinUsLink({ params }: Props) {
 
   const path = usePathname();
 
-  return path === "/en" || path === "/ar" ? (
+  const segments = path.split("/");
+
+  // console.log(segments);
+
+  return segments.length <= 2 ? (
     <Link className={styles.joinUs} href={`/${lang}/joinus`}>
       {t("joinus")}
     </Link>
