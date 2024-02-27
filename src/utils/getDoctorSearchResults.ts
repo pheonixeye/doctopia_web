@@ -29,6 +29,7 @@ export interface Clinic {
   spec_id: number;
   gov_id: number;
   city_id: number;
+  $id: string;
 }
 
 export interface Parameters {
@@ -65,7 +66,8 @@ function _buildFindDoctorsQueryQuery(
   }
   queries.push(`queries[]=limit(5)&`);
   //TODO: pagination by cursor
-  // queries.push(`queries[]=limit(5)&`);
+  const cursor = QueryClass.cursorAfter("$documentId");
+  // queries.push(`${cursor}&`);
 
   return queries.join();
 }

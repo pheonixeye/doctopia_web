@@ -20,11 +20,12 @@
   color: var(--doctopia-font-color);
   font-size: 4.5rem;
   text-align: center;
+  margin-inline: 20px;
 }
 
 .heroTextOneArabic {
   font-size: 5.5rem;
-  margin: 50px;
+  margin: 30px;
 }
 
 .heroTextTwo {
@@ -35,7 +36,7 @@
 }
 .heroTextTwoArabic {
   font-size: 4rem;
-  margin: 50px;
+  margin: 30px;
 }
 
 .heroTextThree {
@@ -47,6 +48,6 @@
 }
 
 .heroTextThreeArabic {
-  font-size: 3rem;
-  margin: 50px;
+  font-size: 4rem;
+  margin: 30px;
 }
