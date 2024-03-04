@@ -7,7 +7,7 @@
   align-items: center;
   gap: 20px;
   justify-items: center;
-  box-shadow: -10px 0px 10px grey;
+  box-shadow: var(--doctopia-box-shadow-footer);
 }
 
 @media (max-width: 600px) {
@@ -56,4 +56,18 @@
 }
 .socialLinks a:active {
   background-color: var(--doctopia-orange);
+}
+
+@media (prefers-color-scheme: dark) {
+  .socialLinks a {
+    background-color: grey;
+  }
+
+  .socialLinks a:hover {
+    background-color: var(--doctopia-green-dark);
+  }
+
+  .socialLinks a:active {
+    background-color: var(--doctopia-orange-dark);
+  }
 }

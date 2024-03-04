@@ -20,3 +20,17 @@
 .languageSwitcherBtn:active {
   background-color: var(--doctopia-orange);
 }
+
+@media (prefers-color-scheme: dark) {
+  .languageSwitcherBtn {
+    background-color: grey;
+  }
+
+  .languageSwitcherBtn:hover {
+    background-color: var(--doctopia-green-dark);
+  }
+
+  .languageSwitcherBtn:active {
+    background-color: var(--doctopia-orange-dark);
+  }
+}

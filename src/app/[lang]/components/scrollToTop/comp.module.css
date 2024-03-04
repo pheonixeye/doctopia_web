@@ -25,3 +25,17 @@
 .btnIcon {
   font-size: 2rem;
 }
+
+@media (prefers-color-scheme: dark) {
+  .scrollToTopBtn {
+    background-color: grey;
+  }
+
+  .scrollToTopBtn:hover {
+    background-color: var(--doctopia-green-dark);
+  }
+
+  .scrollToTopBtn:active {
+    background-color: var(--doctopia-orange-dark);
+  }
+}

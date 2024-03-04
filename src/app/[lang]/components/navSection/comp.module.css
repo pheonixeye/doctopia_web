@@ -1,17 +1,17 @@
 .mainNav {
   grid-column: 1 / -1;
   grid-row: 1 / 2;
-  box-shadow: 5px 5px 5px grey;
+  box-shadow: var(--doctopia-box-shadow);
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  background-color: #fa8bff;
+  background-color: var(--doctopia-bg-main);
   background-image: linear-gradient(
     45deg,
-    #fff78b 0%,
-    #2bd2ff 22%,
-    #2bff88 90%
+    var(--doctopia-bg-one) 0%,
+    var(--doctopia-bg-two) 22%,
+    var(--doctopia-bg-three) 90%
   );
   background-size: 400% 400%;
   animation: gradient 25s ease infinite;
